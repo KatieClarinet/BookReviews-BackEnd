@@ -1,4 +1,5 @@
 import express from "express";
+import { response } from "express";
 import { query } from "../index.js";
 const router = express.Router();
 
@@ -10,7 +11,7 @@ import {
 //GET BY SEARCHED QUERY
 router.get("/", async function (req, res) {
   const searchField = req.query.title;
-  console.log(`${searchField} + line 12`);
+  console.log(`${searchField} + line 14`);
   // console.log(`searched query log: ${searchField}`);
 
   const responseObject = {
@@ -19,6 +20,7 @@ router.get("/", async function (req, res) {
   };
   console.log(responseObject);
   res.json(responseObject);
+  console.log(`${response} + line 23`);
 });
 
  router.get("/", async function (req, res){
@@ -28,6 +30,7 @@ router.get("/", async function (req, res) {
       payload: await getAllReviews(),
   };
   res.json(responseObject);
+  console.log(`${response} + line 33`);
 });
 
 
@@ -65,5 +68,3 @@ router.get("/", async function (req, res) {
 // });
 
 export default router;
-
-// NOTE: changed "payload" to "data" because of a frontend / react specific method
