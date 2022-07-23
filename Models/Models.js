@@ -13,7 +13,7 @@ export async function getSearchedReview(searchField) {
 	console.log(searchField)
 	// SQL: select everything from the snippets table where there title contains value1 [expressed here]. || represents a space.
 	const result = await pool.query(
-		`SELECT * FROM books WHERE LOWER(author) LIKE LOWER('%' || $1 || '%') OR LOWER(title) LIKE LOWER('%' || $1 || '%');`,
+		`SELECT * FROM books WHERE LOWER(author) LIKE LOWER('%' || $1 || '%') OR LOWER(title) LIKE LOWER('%' || $1 || '%') ORDER BY title ASC;`,
 		[searchField]
 	);
 	console.log(result.rows[0]);
