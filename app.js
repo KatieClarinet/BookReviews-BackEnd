@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 const app = express();
-const PORT = process.env.PGPORT || 3000;
+const port = process.env.PORT || 3000;
 import router from "./Routes/Routes.js";
 
 app.use(express.json());
@@ -21,6 +21,6 @@ app.get("/", function (req, res) {
 
 app.use("/books", router);
 
-app.listen(PORT, function () {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, function () {
+  console.log(`Server is running on port ${port}`);
 });

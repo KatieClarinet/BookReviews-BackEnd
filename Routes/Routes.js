@@ -1,5 +1,5 @@
 import express from "express";
-import { response } from "express";
+// import { response } from "express";
 import { query } from "../index.js";
 const router = express.Router();
 
@@ -7,6 +7,17 @@ import {
   getAllReviews,
   getSearchedReview
  } from "../Models/Models.js";
+
+ router.get("/", async function (req, res){
+  console.log('hi');
+ const responseObject = {
+     success: true,
+     payload: await getAllReviews(),
+ };
+ res.json(responseObject);
+ // console.log(`${response} + line 33`);
+});
+
 
 //GET BY SEARCHED QUERY
 router.get("/", async function (req, res) {
@@ -18,20 +29,12 @@ router.get("/", async function (req, res) {
     success: true,
     payload: await getSearchedReview(searchField),
   };
-  console.log(responseObject);
+  // console.log(responseObject);
   res.json(responseObject);
-  console.log(`${response} + line 23`);
+  // console.log(`${response} + line 23`);
 });
 
- router.get("/", async function (req, res){
-   console.log('hi');
-  const responseObject = {
-      success: true,
-      payload: await getAllReviews(),
-  };
-  res.json(responseObject);
-  console.log(`${response} + line 33`);
-});
+
 
 
 
