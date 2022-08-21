@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.PGPORT || 3000;
 import router from "./Routes/Routes.js";
 
 app.use(express.json());
