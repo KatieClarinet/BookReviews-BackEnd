@@ -8,18 +8,7 @@ import {
   getSearchedReview
  } from "../Models/Models.js";
 
- router.get("/", async function (req, res){
-  console.log('hi');
- const responseObject = {
-     success: true,
-     payload: await getAllReviews(),
- };
- res.json(responseObject);
- // console.log(`${response} + line 33`);
-});
-
-
-//GET BY SEARCHED QUERY
+ //GET BY SEARCHED QUERY
 router.get("/", async function (req, res) {
   const searchField = req.query.title;
   console.log(`${searchField} + line 14`);
@@ -33,6 +22,19 @@ router.get("/", async function (req, res) {
   res.json(responseObject);
   // console.log(`${response} + line 23`);
 });
+
+ router.get("/", async function (req, res){
+  console.log('hi');
+ const responseObject = {
+     success: true,
+     payload: await getAllReviews(),
+ };
+ res.json(responseObject);
+ // console.log(`${response} + line 33`);
+});
+
+
+
 
 
 
